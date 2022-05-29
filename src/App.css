@@ -1,12 +1,29 @@
 .App {
   text-align: center;
+  display: flex;
+  gap: 100px;
+  margin-top: 50px;
+  margin-left: 50px;
+  height: fit-content;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.right_box{
+  width: 200px;
+  height: auto;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
 }
-
+.left_box{
+  height: 200px;
+  width: 550px;
+  display: flex;
+  border:1px solid red;
+  margin-top: 15%;
+  gap: 10px;
+  align-items: center;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

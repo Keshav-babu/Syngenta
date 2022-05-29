@@ -16,24 +16,16 @@ function App() {
     data.sort((a,b)=>a.id-b.id)
   }
   sortBaloons(data)
-  const  handleShoot=async (id)=>{
+  const  handleShoot=(id)=>{
   //console.log(circle_data,"circle data before del")
   // circle_data.splice(id-1,1)
-  if(!id){
-    alert("Input is emply")
+  if(id===""||id==="0"){
+    alert("Input is not valid")
+    setInpShoot('')
   }else{
     setShootedBaloon([...shooted_baloon,...data.splice(id-1,1)])
     setInpShoot('')
   }
-    
-    //console.log(data.splice(id-1,1))
-    //let del=await axios.delete(`http://localhost:3001/original_baloons/${id}`)
-   // console.log(del)
-  //  axios.post("http://localhost:3001/shooted_baloons",del)
-
-   //setData(circle_data)
-   //console.log(circle_data,"circle data after del")
-   //circle_data=data
   }
   const handleOnChange=(num)=>{
     //console.log(num,circle_data.length)
@@ -52,9 +44,9 @@ function App() {
       }} />
       <button onClick={()=>{handleShoot(inp_shoot)}}>shoot</button>
     </div>
-    <div className="App" style={{display:'flex',gap:"100px",marginTop:"50px",marginLeft:"50px",height:"fit-content"}}>
+    <div className="App">
       
-      <div style={{height:"200px", width:"550px" ,border:"1px solid red",marginTop:"15%",display:'flex',gap:'10px',alignItems:'center'}}>
+      <div className='left_box' >
         {shooted_baloon.map(baloon=>{
           return <div key={baloon.id} onClick={()=>{
             let indexOfTargetBaloon=shooted_baloon.indexOf(baloon)
@@ -65,7 +57,7 @@ function App() {
           </div>
         })}
       </div>
-      <div style={{width:"200px",height:'auto',border:"1px solid red",display:'flex',flexDirection:'column',gap:"15px",alignItems:'center'}}>
+      <div className='right_box' >
         {data.map(data=>{
           return <div key={data.id}>
             <Circle  color={data.color}/>
