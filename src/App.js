@@ -11,7 +11,7 @@ function App() {
 
   const [data,setData]=useState(circle_data)
   
-  const [inp_shoot,setInpShoot]=useState(null)
+  const [inp_shoot,setInpShoot]=useState("")
   const sortBaloons=(data)=>{
     data.sort((a,b)=>a.id-b.id)
   }
@@ -19,8 +19,14 @@ function App() {
   const  handleShoot=async (id)=>{
   //console.log(circle_data,"circle data before del")
   // circle_data.splice(id-1,1)
+  if(!id){
+    alert("Input is emply")
+  }else{
     setShootedBaloon([...shooted_baloon,...data.splice(id-1,1)])
-    setInpShoot(null)
+    setInpShoot('')
+  }
+    
+    //console.log(data.splice(id-1,1))
     //let del=await axios.delete(`http://localhost:3001/original_baloons/${id}`)
    // console.log(del)
   //  axios.post("http://localhost:3001/shooted_baloons",del)
@@ -31,7 +37,7 @@ function App() {
   }
   const handleOnChange=(num)=>{
     //console.log(num,circle_data.length)
-    if(num>circle_data.length){
+    if(num>data.length){
       alert("Baloons are not Enough")
     }else{
       setInpShoot(num)
@@ -40,7 +46,7 @@ function App() {
   return (
     <>
     <div style={{margin:"auto",width:"250px"}}>
-      <input id='inp' maxLength="1" onChange={(e)=>{
+      <input id='inp' maxLength="1" value={inp_shoot} onChange={(e)=>{
         handleOnChange(e.target.value)
         
       }} />
