@@ -5,8 +5,8 @@ import './App.css';
 import Circle from './component/Circle';
 
 function App() {
-  let circle_data=[{color:"yellow",id:1},{color:"green",id:2},{color:"red",id:3},
-    {color:"blue",id:4},{color:"brown",id:5}]
+  let circle_data=[{color:"rgb(241, 191, 180)",id:1},{color:"rgb(190, 237, 190)",id:2},{color:"rgb(231, 190, 231)",id:3},
+    {color:"rgb(65,105,225",id:4},{color:"rgb(165,42,42)",id:5}]
   const [shooted_baloon,setShootedBaloon]=useState([])
 
   const [data,setData]=useState(circle_data)
